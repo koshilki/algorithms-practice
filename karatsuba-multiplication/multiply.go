@@ -16,7 +16,7 @@ func main() {
 
 	product := karatsuba(x, y)
 
-	fmt.Println("Product: ", product)
+	fmt.Println("Product:", product)
 }
 
 func karatsuba(x, y string) string {
@@ -47,7 +47,7 @@ func karatsuba(x, y string) string {
 	sub := subtractLong(subtractLong(prod3, prod1), prod2)
 
 	res := addLong(addLong(addZeros(prod1, maxLen), addZeros(sub, maxLen/2)), prod2)
-	return res
+	return strings.TrimLeft(res, "0")
 }
 
 func addLong(x, y string) string {
@@ -114,7 +114,7 @@ func subtractLong(x, y string) string {
 
 	res := strings.Join(result, "")
 
-	return res
+	return strings.TrimLeft(res, "0")
 }
 
 func padLeft(str, pad string, lenght int) string {
